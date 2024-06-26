@@ -16,18 +16,18 @@
     border: 0;
     outline: 0;
     box-shadow: none;
-    background-color: '#173d77';
+    background-color: white;
     border-radius: 20px;
 }
 .react-select-container .react-select__input-container {
-    color: white;
+    color: black;
     margin: 0 10px;
 }
 .react-select-container .react-select__single-value {
-    color: white;
+    color: 'rgb(10,10,10)';
 }
 .react-select-container .react-select__multi-value {
-    background-color: '#020c1b';
+    background-color: gray;
     border-radius: 10px;
 }
 .react-select-container .react-select__multi-value__label {
@@ -37,12 +37,17 @@
     background-color: transparent;
     color: white;
     cursor: pointer;
-    &:hover {
-        color: '#1c4b91';
-    }
+}
+.react-select-container .react-select__multi-value__remove:hover {
+    color: black;
+    background-color: transparent;
 }
 .react-select-container .react-select__menu {
     top: 40px;
     margin: 0;
     padding: 0;
+    border-radius: 20px;
+    ::-webkit-scrollbar {
+        display: none;
+    }
 }
