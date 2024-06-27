@@ -44,14 +44,14 @@ const SearchResult = () => {
     }, [query]);
 
     return (
-        <div className="min-h-[700px] pt-[100px]">
+        <div className="min-h-[700px] pt-[100px] text-white">
             {loading && <Spinner initial={true} />}
             {!loading && (
                 <div className='w-[100%] max-w-screen-xl my-0 mx-auto py-0 px-[20px]'>
                     {data?.results?.length > 0 ? (
                         <>
                             <div className="text-[24px] leading-[34px] text-white mb-[25px]">
-                                {`Search ${data?.total_results > 1 ? "results" : "result"} of '${query}'`}
+                                {`Search ${data?.total_results > 1 ? "results" : "result"} for '${query}'`}
                             </div>
                             <InfiniteScroll
                                 className="flex flex-wrap gap-[10px] mb-[50px] md:gap-[20px]"
@@ -68,7 +68,7 @@ const SearchResult = () => {
                             </InfiniteScroll>
                         </>
                     ) : (
-                        <span className="text-[24px]">
+                        <span className="text-[24px] text-white">
                             Sorry, Results not found!
                         </span>
                     )}

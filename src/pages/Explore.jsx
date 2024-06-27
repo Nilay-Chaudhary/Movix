@@ -43,10 +43,10 @@ const Explore = () => {
     };
 
     const fetchNextPageData = () => {
-        fetchDataFromApi( `/discover/${mediaType}?page=${pageNum}`, filters).then((res) => {
+        fetchDataFromApi(`/discover/${mediaType}?page=${pageNum}`, filters).then((res) => {
             if (data?.results) {
-                setData({...data,results: [...data?.results, ...res.results]});
-            } 
+                setData({ ...data, results: [...data?.results, ...res.results] });
+            }
             else {
                 setData(res);
             }
@@ -80,7 +80,7 @@ const Explore = () => {
                 let genreId = selectedItems.map((g) => g.id);
                 genreId = JSON.stringify(genreId).slice(1, -1);
                 filters.with_genres = genreId;
-            } 
+            }
             else {
                 delete filters.with_genres;
             }
@@ -125,6 +125,7 @@ const Explore = () => {
                 {loading && <Spinner initial={true} />}
                 {!loading && (
                     <>
+                        {/* {console.log(data)} */}
                         {data?.results?.length > 0 ? (
                             <InfiniteScroll
                                 className="flex flex-wrap gap-[10px] mb-[50px] md:gap-[20px]"
@@ -142,7 +143,7 @@ const Explore = () => {
                                 })}
                             </InfiniteScroll>
                         ) : (
-                            <span className="text-[24px]">
+                            <span className="text-[24px] text-white text-center">
                                 Sorry, Results not found!
                             </span>
                         )}

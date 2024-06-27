@@ -28,7 +28,7 @@ const Cast = ({ data, loading, mediaType }) => {
                         })}
                     </div>
                 ) : (
-                    <div className="w-full h-[100px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
+                    <div className="w-full h-[300px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
                         Loading&nbsp;
                         <img className="w-[30px]" src={loadinggif} alt="" />
                     </div>

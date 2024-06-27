@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -9,7 +9,6 @@ import Genres from "./Genres";
 
 // endpoint needed for popular because popular api result doesnt have media type
 const Carousel = ({data, loading, endpoint, title}) => {
-    const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
 
@@ -48,7 +47,7 @@ const Carousel = ({data, loading, endpoint, title}) => {
                         })}
                     </div>
                 ) : (
-                    <div className="w-full h-[100px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
+                    <div className="w-full h-[300px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
                         Loading&nbsp;
                         <img className="w-[30px]" src={loadinggif} alt="" />
                     </div>

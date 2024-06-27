@@ -17,7 +17,7 @@ const DetailsBanner = ({ video, crew }) => {
 
     const { mediaType, id } = useParams();
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
-    console.log(data);
+    // console.log(data);
     const { url } = useSelector((state) => state.home);
 
     const genres = data?.genres?.map((genre) => genre.id);
@@ -32,6 +32,22 @@ const DetailsBanner = ({ video, crew }) => {
         const minutes = totalMinutes % 60;
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
+
+    const favoritesHandler = async () => {
+        let movieData = [data?.id, data?.poster_path, data?.title || data?.name, mediaType]
+        // console.log(movieData);
+        let userEmail = localStorage.getItem("userEmail");
+        await fetch("http://localhost:4000/api/v1/movieData", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                movie_data: movieData,
+                email: userEmail,
+            })
+        });
+    }
 
     return (
         <div className="w-full pt-[100px] mb-[50px] bg-[#04152d] md:mb-0 md:pt-[120px] md:min-w-[700px]">
@@ -71,7 +87,9 @@ const DetailsBanner = ({ video, crew }) => {
                                                     Watch Trailer
                                                 </span>
                                             </div>
+                                            <div onClick={favoritesHandler} className="select-none text-[20px] gap-[20px] cursor-pointer hover:text-[#da2f68] duration-300">Add to Favorites</div>
                                         </div>
+
 
                                         <div className="mb-[25px]">
                                             <div className="text-[24px] mb-[10px]">
@@ -192,7 +210,7 @@ const DetailsBanner = ({ video, crew }) => {
                             </div>
                 </>
             ) : (
-                <div className="w-full h-[100px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
+                <div className="w-full h-[300px] flex items-center justify-center text-white text-[14px] md:text-[20px]">
                         Loading&nbsp;
                         <img className="w-[30px]" src={loadinggif} alt="" />
                 </div>

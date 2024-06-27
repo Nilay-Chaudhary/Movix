@@ -12,11 +12,11 @@ const Details = () => {
     const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
     let { data:credits, loading:creditsLoading } = {data:null, loading:true};
     // renaming data to credits to avoid error
-    console.log(mediaType)
+    // console.log(mediaType)
     if(mediaType === "movie") ( {data:credits, loading:creditsLoading} = useFetch(`/movie/${id}/credits`) );
     else ( {data:credits, loading:creditsLoading} = useFetch(`/tv/${id}/aggregate_credits`));
-    console.log(data);
-    console.log(credits);
+    // console.log(data);
+    // console.log(credits);
     return (
         <div>
             <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
