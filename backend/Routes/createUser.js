@@ -44,42 +44,44 @@ router.post("/createuser", [
 
     })
 
+    router.post("/loginuser", (req,res) => {
+        res.send("hel");
+    })
 
-router.post("/loginuser", [
-    body('email').isEmail(),
-    body('password').isLength({ min: 5 })],
-    async (req, res) => {
-        res.json({msg : success})
-        // const errors = validationResult(req);
-        // if (!errors.isEmpty()) {
-        //     return res.status(400).json({ errors: errors.array() })
-        // }
-        // const email = req.body.email;
-        // const password = req.body.password;
-        // try {
-        //     const userData = await User.findOne({ email }).select("+password");
-        //     if (!userData) {
-        //         return res.status(400).json({ error: "Wrong email or password!" })
-        //     }
+// router.post("/loginuser", [
+//     body('email').isEmail(),
+//     body('password').isLength({ min: 5 })],
+//     async (req, res) => {
+//         const errors = validationResult(req);
+//         if (!errors.isEmpty()) {
+//             return res.status(400).json({ errors: errors.array() })
+//         }
+//         const email = req.body.email;
+//         const password = req.body.password;
+//         try {
+//             const userData = await User.findOne({ email }).select("+password");
+//             if (!userData) {
+//                 return res.status(400).json({ error: "Wrong email or password!" })
+//             }
 
-        //     const comparePassword = await bcrypt.compare(password, userData.password);
-        //     if (!comparePassword) {
-        //         return res.status(400).json({ error: "Wrong email or password!" })
-        //     }
+//             const comparePassword = await bcrypt.compare(password, userData.password);
+//             if (!comparePassword) {
+//                 return res.status(400).json({ error: "Wrong email or password!" })
+//             }
 
-        //     const data = {
-        //         user: {
-        //             id: userData.id
-        //         }
-        //     }
-        //     const authToken = jwt.sign(data, jwtSecret);
-        //     return res.json({ success: true, authToken: authToken });
+//             const data = {
+//                 user: {
+//                     id: userData.id
+//                 }
+//             }
+//             const authToken = jwt.sign(data, jwtSecret);
+//             return res.json({ success: true, authToken: authToken });
 
-        // } catch (error) {
-        //     console.log(error);
-        //     res.json({ success: false, message: "Some Error Occurred" })
-        // }
-    }
-);
+//         } catch (error) {
+//             console.log(error);
+//             res.json({ success: false, message: "Some Error Occurred" })
+//         }
+//     }
+// );
 
 module.exports = router;
