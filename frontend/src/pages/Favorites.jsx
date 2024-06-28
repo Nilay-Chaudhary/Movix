@@ -23,7 +23,7 @@ const Favorites = () => {
 
     useEffect(() => {
         fetchMyMovie()
-    }, [movieData])
+    }, [])
 
     return (
         <div className="mb-[50px] text-white mt-[90px]">
