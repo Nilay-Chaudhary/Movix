@@ -9,6 +9,7 @@ import PosterFallback from "../../assets/no-poster.png"
 import loadinggif from "../../assets/loading-gif.gif"
 import { FaRegPlayCircle } from "react-icons/fa";
 import VideoPopup from "../../components/VideoPopup";
+import { MdOutlinePlaylistAdd } from "react-icons/md";
 import "./style.css";
 
 const DetailsBanner = ({ video, crew }) => {
@@ -87,7 +88,14 @@ const DetailsBanner = ({ video, crew }) => {
                                                     Watch Trailer
                                                 </span>
                                             </div>
-                                            <div onClick={favoritesHandler} className="select-none text-[20px] gap-[20px] cursor-pointer hover:text-[#da2f68] duration-300">Add to Favorites</div>
+                                            {localStorage.getItem("authToken") ? 
+                                                <div onClick={favoritesHandler} className="flex select-none text-[20px] gap-[10px] items-center justify-center cursor-pointer hover:text-[#da2f68] duration-300">
+                                                <MdOutlinePlaylistAdd size={"30px"}/>
+                                                <div>Add to Favorites</div>
+                                                </div>
+                                                :
+                                                ""
+                                            }
                                         </div>
 
 
