@@ -44,7 +44,7 @@ router.post("/createuser", [
 
     })
 
-    router.post("/loginuser", (req,res) => {
+    router.get("/loginuser", (req,res) => {
         res.send("hel");
     })
 
