@@ -37,7 +37,7 @@ const DetailsBanner = ({ video, crew }) => {
         let movieData = [data?.id, data?.poster_path, data?.title || data?.name, mediaType]
         // console.log(movieData);
         let userEmail = localStorage.getItem("userEmail");
-        await fetch("http://localhost:4000/api/v1/movieData", {
+        await fetch("https://movix-now.vercel.app", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
