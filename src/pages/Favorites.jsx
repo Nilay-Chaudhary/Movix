@@ -5,7 +5,7 @@ const Favorites = () => {
     const [movieData, setMovieData] = useState([])
 
     const fetchMyMovie = async () => {
-        await fetch("http://localhost:4000/api/v1/myMovieData", {
+        await fetch("https://movix-now.vercel.app/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
