@@ -16,7 +16,7 @@ const FavoritesCard = ({ id, title, poster_path, mediaType }) => {
     const removeFavHandler = async() => {
         let movieData = [id, poster_path, title, mediaType];
             let userEmail = localStorage.getItem("userEmail");
-            await fetch("https://movix-now.vercel.app", {
+            await fetch("https://movix-now.vercel.app/api/v1/deleteMovieData", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

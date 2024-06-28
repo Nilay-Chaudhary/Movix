@@ -6,7 +6,7 @@ const Login = () => {
     let navigate = useNavigate();
     const submitHandler = async (e) => {
         e.preventDefault();
-        const response = await fetch("https://movix-now.vercel.app", {
+        const response = await fetch("https://movix-now.vercel.app/api/v1/loginuser", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
