@@ -1,6 +1,7 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const mongoose = require('mongoose');
-
-const MONGO_URI = "mongodb://127.0.0.1:27017/Movix";
+const MONGO_URI = process.env.MONGO_URI;
 
 const connectTo = async () => {
   try {
